@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【プレスリリース】台湾文化祭2026 取材のご案内</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            taiwanRed: '#E60012',
+            taiwanOrange: '#F05A24',
+            taiwanYellow: '#F1B226',
+            taiwanBlue: '#1D2E54',
+            taiwanBeige: '#FFF9E6',
+          },
+          fontFamily: {
+            sans: ['Noto Sans JP', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* スムーズスクロール */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* 印刷用の特別スタイル */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      .print-page-break {
+        page-break-before: always;
+      }
+      .shadow-lg, .shadow-md, .shadow-xl {
+        box-shadow: none !important;
+      }
+      .border-taiwanRed {
+        border-color: #000 !important;
+      }
+    }
+    /* アニメーション用 */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-amber-50/30 text-slate-800 font-sans antialiased">
+
+  <!-- 印刷専用：取材受付票 -->
+  <div id="printPassContainer" class="hidden print-only p-8 max-w-4xl mx-auto border-4 border-double border-black my-8">
+    <div class="text-center mb-6">
+      <p class="text-xs uppercase tracking-widest font-bold">Press Pass / 取材受付確認書</p>
+      <h1 class="text-3xl font-bold mt-2">台湾文化祭2026 取材受付票</h1>
+      <p class="text-sm text-gray-600 mt-1">本用紙を受付窓口（中野区役所ナカノバ受付）にご提示ください</p>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-4 border-t border-b border-gray-300 py-4 my-4">
+      <div>
+        <p class="text-xs text-gray-500">貴社名 / 媒体名</p>
+        <p id="p-media" class="text-lg font-bold text-gray-900">-</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500">取材代表者様氏名</p>
+        <p id="p-name" class="text-lg font-bold text-gray-900">-</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500">ご連絡先TEL</p>
+        <p id="p-tel" class="text-base text-gray-900">-</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500">ご連絡先メール</p>
+        <p id="p-email" class="text-base text-gray-900">-</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500">ご来場予定日</p>
+        <p id="p-dates" class="text-base font-semibold text-gray-900">-</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500">取材種別 / 取材人数</p>
+        <p id="p-types" class="text-base text-gray-900">-</p>
+      </div>
+    </div>
+    
+    <div class="bg-gray-100 p-4 rounded mb-6">
+      <h4 class="text-sm font-bold mb-2">■ 取材にあたっての注意事項</h4>
+      <ul class="text-xs text-gray-700 space-y-1 list-disc list-inside">
+        <li>開幕式は <strong>6月27日(土) 11:00〜11:30</strong> に中野区役所ナカノバ（メインステージ）にて執り行います。</li>
+        <li>当日は開始30分前（10:30）より、<strong>中野区役所ナカノバ受付</strong>にてプレス受付を開始します。</li>
+        <li>プレス腕章・プレスパスをお渡ししますので、会場内では必ずご着用ください。</li>
+        <li>スチール・ビデオ三脚を使用される場合は、他のお客様の導線および観覧の妨げにならないよう、指定 of プレスエリアから撮影をお願いいたします。</li>
+        <li>出演者への個別インタビュー等を希望される場合は、事前にお問い合わせ窓口までご相談ください。</li>
+      </ul>
+    </div>
+    
+    <div class="flex justify-between items-end text-xs text-gray-500">
+      <div>
+        <p>発行：台湾文化祭実行委員会（運営：株式会社トモトモ）</p>
+        <p>E-mail: taiwanmatusri@gmail.com</p>
+      </div>
+      <div class="text-right">
+        <p>受付番号：<span id="p-ref-no" class="font-mono font-bold text-gray-900">TW2026-XXXX</span></p>
+        <p>発行日：2026年6月吉日</p>
+      </div>
+    </div>
+    <div class="mt-8 text-center no-print">
+      <button onclick="window.print()" class="px-6 py-2 bg-taiwanBlue text-white font-bold rounded shadow hover:bg-opacity-90">
+        <i class="fa-solid fa-print mr-2"></i> この受付票を印刷する
+      </button>
+      <button onclick="closePrintPass()" class="ml-4 px-6 py-2 bg-gray-500 text-white font-bold rounded shadow hover:bg-opacity-90">
+        閉じる
+      </button>
+    </div>
+  </div>
+
+  <!-- メインWeb表示領域 -->
+  <div class="no-print">
+    
+    <!-- ポスター風トップヘッダー波デザイン -->
+    <div class="relative bg-taiwanRed overflow-hidden">
+      <!-- 台湾文化祭の特徴的な赤とオレンジのギザギザ波模様をSVGで再現 -->
+      <div class="absolute top-0 left-0 w-full h-4 bg-repeat-x" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;10&quot; viewBox=&quot;0 0 20 10&quot;><polygon points=&quot;0,10 10,0 20,10&quot; fill=&quot;%23F05A24&quot;/></svg>');"></div>
+      
+      <!-- 装飾用バックグラウンド（ランタン、小籠包、タピオカ、お茶などのシルエット） -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-around items-center flex-wrap p-12">
+        <i class="fa-solid fa-mortar-pestle text-7xl"></i>
+        <i class="fa-solid fa-bowl-food text-8xl"></i>
+        <i class="fa-solid fa-beer-mug-empty text-7xl"></i>
+        <i class="fa-solid fa-umbrella text-8xl"></i>
+        <i class="fa-solid fa-mug-hot text-7xl"></i>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 pt-12 pb-16 text-center relative z-10">
+        <!-- 台湾文化祭公式マスコットキャラクター画像（静止表示：ありのまま表示） -->
+        <div class="inline-block mb-4">
+          <img src="OAOstudio_台湾文化祭_Nian-02 (1).png" alt="台湾文化祭マスコット Nian" class="w-32 h-32 object-contain mx-auto" onerror="this.onerror=null; this.outerHTML='<svg class=&quot;w-24 h-24 text-taiwanRed mx-auto&quot; viewBox=&quot;0 0 100 100&quot; fill=&quot;currentColor&quot;><rect x=&quot;25&quot; y=&quot;30&quot; width=&quot;50&quot; height=&quot;45&quot; rx=&quot;10&quot; fill=&quot;%23E60012&quot; /><polygon points=&quot;25,30 15,10 40,30&quot; fill=&quot;%23E60012&quot; /><polygon points=&quot;75,30 85,10 60,30&quot; fill=&quot;%23E60012&quot; /><path d=&quot;M40,75 L60,75 L50,85 Z&quot; fill=&quot;%231D2E54&quot; /><circle cx=&quot;40&quot; cy=&quot;48&quot; r=&quot;4&quot; fill=&quot;%23FFF&quot; /><circle cx=&quot;40&quot; cy=&quot;48&quot; r=&quot;2&quot; fill=&quot;%23000&quot; /><circle cx=&quot;60&quot; cy=&quot;48&quot; r=&quot;4&quot; fill=&quot;%23FFF&quot; /><circle cx=&quot;60&quot; cy=&quot;48&quot; r=&quot;2&quot; fill=&quot;%23000&quot; /><path d=&quot;M45,58 Q50,62 55,58&quot; stroke=&quot;%23FFF&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; /></svg>';">
+        </div>
+
+        <p class="text-taiwanYellow text-sm font-bold uppercase tracking-widest mb-1">Press Information / メディア取材ご案内</p>
+        <h1 class="text-white text-3xl md:text-5xl font-black tracking-tight leading-tight">
+          台湾、中野に来る。全51ブースと豪華ゲストが集結！<br class="hidden md:inline">
+          <span class="text-taiwanYellow">「台湾文化祭2026」</span>開催のご案内
+        </h1>
+        <p class="text-white/90 text-sm md:text-base font-semibold max-w-2xl mx-auto mt-4">
+          【取材推奨】6月27日（土）11:00～ 開幕式（中野区役所 ナカノバ）にて開催。<br>
+          「アンバサダー・台日文化交流大使就任式」や「テープカット」のほか、12:00からは市川由紀乃氏×竹本大亀氏の特別コラボステージを初公開！
+        </p>
+        
+        <div class="mt-8 flex flex-wrap gap-3 justify-center">
+          <a href="#about" class="px-6 py-3 bg-taiwanYellow text-taiwanBlue font-bold rounded-full shadow-lg hover:bg-white transition">
+            <i class="fa-solid fa-circle-info mr-2"></i> 開催概要・取材要項
+          </a>
+          <a href="#timetable" class="px-6 py-3 bg-taiwanBlue text-white font-bold rounded-full shadow-lg hover:bg-opacity-90 transition">
+            <i class="fa-solid fa-calendar-days mr-2"></i> タイムテーブル
+          </a>
+          <a href="#map" class="px-6 py-3 bg-white text-slate-800 font-bold rounded-full shadow-lg hover:bg-slate-100 transition">
+            <i class="fa-solid fa-map-location-dot mr-2"></i> 会場マップ・出店
+          </a>
+          <a href="#registration" class="px-6 py-3 bg-green-600 text-white font-bold rounded-full shadow-lg hover:bg-green-500 transition">
+            <i class="fa-solid fa-file-pen mr-2"></i> 取材申請フォーム
+          </a>
+        </div>
+      </div>
+
+      <!-- 下部の白い波模様デザイン -->
+      <div class="absolute bottom-0 left-0 w-full h-8 bg-repeat-x" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 120&quot; preserveAspectRatio=&quot;none&quot; width=&quot;100%&quot; height=&quot;30&quot; fill=&quot;%23FFF9E6&quot;><path d=&quot;M0,0 C150,90 350,110 500,60 C650,10 850,20 1000,70 C1150,120 1200,30 1200,30 L1200,120 L0,120 Z&quot;></path></svg>');"></div>
+    </div>
+
+    <!-- メニューナビゲーションバー -->
+    <nav class="sticky top-0 bg-white/95 backdrop-blur shadow-md z-40 border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-14">
+        <span class="font-black text-taiwanRed tracking-wider flex items-center">
+          <i class="fa-solid fa-passport mr-2"></i> 台湾文化祭2026 PRESS
+        </span>
+        <div class="hidden md:flex space-x-6 text-sm font-bold text-slate-600">
+          <a href="#about" class="hover:text-taiwanRed">取材案内</a>
+          <a href="#highlights" class="hover:text-taiwanRed">取材のポイント</a>
+          <a href="#timetable" class="hover:text-taiwanRed">タイムテーブル</a>
+          <a href="#map" class="hover:text-taiwanRed">会場・出店情報</a>
+          <a href="#registration" class="hover:text-taiwanRed">取材申込</a>
+        </div>
+        <a href="#registration" class="px-4 py-1.5 bg-taiwanRed text-white text-xs font-bold rounded-full hover:bg-opacity-90">
+          取材エントリー
+        </a>
+      </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      
+      <!-- メディア関係者への挨拶・呉廷中実行委員長からのメッセージ -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 mb-8">
+        <div class="flex flex-col md:flex-row justify-between items-start border-b border-slate-100 pb-4 mb-6">
+          <div>
+            <span class="px-3 py-1 bg-taiwanRed/10 text-taiwanRed text-xs font-bold rounded-full">報道関係者各位</span>
+            <h2 class="text-2xl font-black mt-2">台湾文化祭2026の開催および「開幕式」取材のご案内</h2>
+          </div>
+          <div class="text-right text-sm text-slate-500 mt-2 md:mt-0">
+            <p>2026年6月吉日</p>
+            <p>台湾文化祭実行委員会（運営：株式会社トモトモ）</p>
+          </div>
+        </div>
+        
+        <p class="leading-relaxed text-slate-700 mb-4">
+          拝啓 時下ますますご清祥のこととお慶び申し上げます。平素より格別のご高配を賜り、厚く御礼申し上げます。<br>
+          台湾文化祭実行委員会は、2026年6月26日（金）から28日（日）までの3日間、中野区役所および中野四季の森公園にて「台湾文化祭2026」を開催いたします。
+        </p>
+        <p class="leading-relaxed text-slate-700 mb-6">
+          本イベントは<strong>「中野で体感する、本物（リアル）の台湾の日常」</strong>をテーマに、台湾グルメや厳選されたお土産、台湾式マッサージ、夜市ゲームなど、過去最大規模の全51ブースが出店。さらに今年は、スペシャルアンバサダーに就任した演歌歌手の<strong>市川由紀乃</strong>さん、台湾の人気YouTuber<strong>阿倫（アラン）</strong>さん、ヒップホップ新ユニット<strong>饒舌霹靂雙人組</strong>、そして文化交流大使のみなさんなど、日台のトップカルチャーを牽引する豪華ゲストが中野に集結します。
+        </p>
+        <div class="bg-taiwanBeige border-l-4 border-taiwanYellow p-4 rounded mb-6">
+          <h3 class="font-bold text-taiwanBlue mb-1">【取材ハイライト：開幕式について】</h3>
+          <p class="text-sm text-slate-700">
+            <strong>6月27日（土）11:00～11:30</strong>には、中野区役所ナカノバにて、<strong>「開幕式（オープニングセレモニー）」</strong>を執り行います。<br>
+            実行委員長の呉 廷中や日台の要人が登壇し、<strong>「アンバサダー、台日文化交流大使就任式」</strong>および関係者による<strong>「テープカット」</strong>、フォトセッションを執り行います。<br>
+            さらに、同日<strong>12:00〜12:30</strong>からは、市川由紀乃さんと古代文字専門書家・竹本大亀氏による<strong>「演歌と書の饗宴（特別演出ステージ）」</strong>を開催いたします。メディアの皆様の積極的な取材・ご来場をお待ちしております。
+          </p>
+          <p class="text-right text-xs font-bold text-taiwanRed mt-2">敬具　実行委員長 呉 廷中</p>
+        </div>
+      </div>
+
+      <!-- 取材要項＆基本情報 -->
+      <section id="about" class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 scroll-mt-20">
+        <!-- 取材基本スケジュール -->
+        <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
+          <h3 class="text-xl font-bold border-b-2 border-taiwanRed pb-2 mb-4 flex items-center">
+            <i class="fa-solid fa-clock text-taiwanRed mr-2"></i> 開幕式・取材要項
+          </h3>
+          
+          <div class="space-y-4">
+            <div class="grid grid-cols-3 border-b border-slate-100 pb-3">
+              <span class="font-bold text-slate-600 text-sm md:text-base col-span-1">取材可能日時</span>
+              <div class="col-span-2 text-sm md:text-base">
+                <p class="font-bold text-taiwanRed">■ 開幕式（推奨）</p>
+                <p>2026年6月27日（土）11:00～11:30（プレス受付：10:30～）</p>
+                <p class="font-bold text-taiwanRed mt-2">■ 特別演出（演歌と書の饗宴）</p>
+                <p>2026年6月27日（土）12:00～12:30</p>
+                <p class="font-bold text-slate-700 mt-2">■ イベント一般開催期間</p>
+                <p>2026年6月26日（金）～ 28日（日） 各日 11:00～20:00 ※ブースによって異なります</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 border-b border-slate-100 pb-3">
+              <span class="font-bold text-slate-600 text-sm md:text-base col-span-1">取材会場</span>
+              <div class="col-span-2 text-sm md:text-base">
+                <p class="font-bold">中野区役所ナカノバ（メインステージ）</p>
+                <p class="text-xs text-slate-500 mt-1">住所: 〒164-8501 東京都中野区中野4-11-19</p>
+                <p class="text-xs text-slate-500">※サブ会場：中野四季の森公園（芝生エリア・イベントエリア）も取材可能です。</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 border-b border-slate-100 pb-3">
+              <span class="font-bold text-slate-600 text-sm md:text-base col-span-1">プレス受付場所</span>
+              <div class="col-span-2 text-sm md:text-base text-slate-700">
+                <p><strong>中野区役所ナカノバ受付</strong>にお越しください。</p>
+                <p class="text-xs text-red-600 mt-1">※当日は事前に下記フォームより申請の上、発行される「受付票」をお持ちいただくか、お名刺を2枚ご用意ください。</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 pb-3">
+              <span class="font-bold text-slate-600 text-sm md:text-base col-span-1">提供可能素材</span>
+              <div class="col-span-2 text-sm md:text-base text-slate-700">
+                <ul class="list-disc list-inside space-y-1">
+                  <li>オフィシャルステージ写真 / 映像提供可能</li>
+                  <li>公式ポスター・WEB-MAP・ロゴデータ</li>
+                  <li>プレスリリース用テキストデータ・出店者プロフィール</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 開催概要クイックカード -->
+        <div class="bg-taiwanBlue text-white rounded-2xl shadow-xl p-6 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-taiwanOrange opacity-10 rounded-full -mr-10 -mt-10"></div>
+          <div>
+            <h3 class="text-lg font-bold border-b border-white/20 pb-2 mb-4 tracking-wider flex items-center">
+              <i class="fa-solid fa-circle-exclamation mr-2"></i> イベント開催情報
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <span class="text-taiwanYellow block text-xs font-bold">イベント名称</span>
+                <p class="font-bold text-base">台湾文化祭2026</p>
+              </li>
+              <li>
+                <span class="text-taiwanYellow block text-xs font-bold">テーマ</span>
+                <p class="font-medium text-white/90">「中野で体感する、本物（リアル）の台湾の日常」</p>
+              </li>
+              <li>
+                <span class="text-taiwanYellow block text-xs font-bold">主催 / 共催</span>
+                <p class="text-xs">台湾文化祭実行委員会（株式会社トモトモ） / 株式会社KACHIAL</p>
+              </li>
+              <li>
+                <span class="text-taiwanYellow block text-xs font-bold">後援</span>
+                <p class="text-xs leading-relaxed text-white/85">東京都中野区、(株)JTB、SoftBank、MARUTOMI、タスキンレントオール、Sun Music、桃園市政府観光旅遊局、臺南市政府観光旅遊局、高雄市政府観光局 等</p>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 text-center">
+            <span class="text-xs text-white/60">© 台湾文化祭実行委員会</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 取材推奨ポイント -->
+      <section id="highlights" class="mb-12 scroll-mt-20">
+        <h3 class="text-2xl font-black text-center mb-8 flex items-center justify-center">
+          <span class="h-1 w-12 bg-taiwanRed rounded mr-3"></span>
+          メディアの皆様への「3大おすすめ取材ポイント」
+          <span class="h-1 w-12 bg-taiwanRed rounded ml-3"></span>
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- ポイント1 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+            <div class="p-6">
+              <div class="w-12 h-12 bg-taiwanRed text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">1</div>
+              <h4 class="font-bold text-lg mb-2">特別演出：「演歌と書の饗宴」</h4>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                <strong>6月27日(土) 12:00～</strong>、復帰を果たした実力派演歌歌手・<strong>市川由紀乃</strong>さんと、神社仏閣等での奉納揮毫で知られる古代文字専門書家・<strong>竹本大亀</strong>氏によるスペシャルコラボ。大迫力のライブ書道と美しい歌唱が中野のステージで融合し、シャッターチャンス満載です。
+              </p>
+            </div>
+            <div class="bg-slate-50 p-4 border-t border-slate-100 text-xs text-center text-slate-500">
+              撮影推奨：6月27日（土）12:00～12:30
+            </div>
+          </div>
+
+          <!-- ポイント2 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+            <div class="p-6">
+              <div class="w-12 h-12 bg-taiwanYellow text-taiwanBlue rounded-full flex items-center justify-center font-bold text-xl mb-4">2</div>
+              <h4 class="font-bold text-lg mb-2">全51ブース！圧巻の本場グルメ＆体験</h4>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                顔ほどのサイズを誇る大人気の<strong>「台湾大雞排」</strong>、下高井戸「MEILI 美麗」の絶品<strong>「胡椒餅」</strong>、アツアツの肉汁あふれる<strong>「水煎包」</strong>、台湾クラフトビールなど、テレビやWebで「映える」ローカルフードが一堂に会します。夜市ゲームコーナーの絵力も抜群です。
+              </p>
+            </div>
+            <div class="bg-slate-50 p-4 border-t border-slate-100 text-xs text-center text-slate-500">
+              全日 11:00～20:00（中野四季の森公園）
+            </div>
+          </div>
+
+          <!-- ポイント3 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+            <div class="p-6">
+              <div class="w-12 h-12 bg-taiwanBlue text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">3</div>
+              <h4 class="font-bold text-lg mb-2">市川由紀乃、阿倫ら日台豪華ゲスト登壇</h4>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                スペシャルアンバサダーの<strong>市川由紀乃</strong>さん、人気YouTuber<strong>阿倫（アラン）</strong>さん、台湾の若手ラップ王者<strong>饒舌霹靂雙人組</strong>、そして文化交流大使の中西悠綺さん、Emily Pu卜星慧さんなど多数のゲストが登壇。
+              </p>
+            </div>
+            <div class="bg-slate-50 p-4 border-t border-slate-100 text-xs text-center text-slate-500">
+              各日のタイムテーブルをご参照ください
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- タイムテーブル（インタラクティブ） -->
+      <section id="timetable" class="mb-12 bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8 scroll-mt-20">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-200 pb-4 mb-6">
+          <div>
+            <h3 class="text-2xl font-black text-slate-900 flex items-center">
+              <i class="fa-solid fa-list-check text-taiwanRed mr-2"></i> ステージ・タイムテーブル
+            </h3>
+            <p class="text-xs text-slate-500 mt-1">※出演内容は変更になる場合があります。メイン：ナカノバ / サブ：四季の森公園</p>
+          </div>
+          
+          <!-- 日程切り替えタブ -->
+          <div class="flex space-x-1 mt-4 md:mt-0 bg-slate-100 p-1 rounded-lg w-full md:w-auto">
+            <button onclick="switchTab('day1')" id="tab-day1" class="tab-btn flex-1 md:flex-initial px-4 py-2 text-xs md:text-sm font-bold rounded-md bg-white text-taiwanRed shadow-sm">
+              6/26 (金)
+            </button>
+            <button onclick="switchTab('day2')" id="tab-day2" class="tab-btn flex-1 md:flex-initial px-4 py-2 text-xs md:text-sm font-bold rounded-md text-slate-600 hover:text-slate-900">
+              6/27 (土) ★開幕式
+            </button>
+            <button onclick="switchTab('day3')" id="tab-day3" class="tab-btn flex-1 md:flex-initial px-4 py-2 text-xs md:text-sm font-bold rounded-md text-slate-600 hover:text-slate-900">
+              6/28 (日)
+            </button>
+          </div>
+        </div>
+
+        <!-- スケジュールコンテンツエリア -->
+        <div class="overflow-x-auto">
+          
+          <!-- DAY 1: 6/26 (金) -->
+          <div id="content-day1" class="timetable-content fade-in space-y-3">
+            <div class="bg-amber-50/50 p-3 rounded-lg border border-amber-100 flex items-center text-xs text-amber-800">
+              <i class="fa-solid fa-circle-info mr-2"></i> 初日は中野四季の森公園の「サブステージ」を中心にDJプレイやアコースティックライブを開催！
+            </div>
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-50 text-xs font-bold text-slate-500 border-b border-slate-200">
+                  <th class="py-3 px-4 w-1/4">時間</th>
+                  <th class="py-3 px-4 w-1/4">ステージ</th>
+                  <th class="py-3 px-4 w-2/4">プログラム・出演者</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-sm">
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">15:00 - 16:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4 font-bold text-slate-800">DJステージ</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">16:00 - 16:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">克里夫 (Cliff)</strong> <span class="text-xs text-slate-500">（台湾出身シンガーソングライター）</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">16:30 - 17:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">中根もにゃ</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">17:00 - 17:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">洸美-hiromi-</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">18:00 - 20:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4 font-bold text-slate-800">DJステージ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- DAY 2: 6/27 (土) -->
+          <div id="content-day2" class="timetable-content fade-in hidden space-y-3">
+            <div class="bg-red-50 p-3 rounded-lg border border-red-100 flex items-center text-xs text-red-800">
+              <i class="fa-solid fa-star mr-2 text-taiwanRed"></i> 【超推奨】11:00より開幕式、12:00より特別演出。中野四季の森公園（サブ）のライブ出演情報も網羅！
+            </div>
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-50 text-xs font-bold text-slate-500 border-b border-slate-200">
+                  <th class="py-3 px-4 w-1/4">時間</th>
+                  <th class="py-3 px-4 w-1/4">ステージ</th>
+                  <th class="py-3 px-4 w-2/4">プログラム・出演者</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-sm">
+                <tr class="bg-amber-50">
+                  <td class="py-3 px-4 font-mono font-bold text-taiwanRed">11:00 - 11:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-red-600 text-white text-[10px] font-bold rounded mr-1">式典</span>
+                    <strong class="text-taiwanRed text-base">台湾文化祭2026 開幕式（アンバサダー、台日文化交流大使就任式 ＆ テープカット）</strong>
+                    <p class="text-xs text-slate-500 mt-1">※実行委員長 呉廷中 挨拶、アンバサダー・大使就任式、テープカット、フォトセッションを実施。</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">11:30 - 11:45</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">在日台湾原住民連合会</strong> <span class="text-xs text-slate-500">（伝統歌唱とダンス）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">11:30 - 12:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">桜音みゆぃ♪</strong> <span class="text-xs text-slate-500">（日台で活動するアイドルライブ）</span>
+                  </td>
+                </tr>
+                <tr class="bg-red-50/30">
+                  <td class="py-3 px-4 font-mono font-bold text-taiwanRed">12:00 - 12:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanBlue text-white text-[10px] font-bold rounded mr-1">特別演出</span>
+                    <strong class="text-slate-900">市川由紀乃 (ft. 竹本大亀) 演歌と書の饗宴</strong>
+                    <p class="text-xs text-slate-500 mt-1">※12:00より開始。市川由紀乃さんの迫力歌唱に合わせた、竹本大亀氏の古代文字大書下ろしパフォーマンス！</p>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">12:30 - 13:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">北村舞香</strong> <span class="text-xs text-slate-500">（医師をしながら活動するソロアイドル）</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">13:00 - 13:15</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">アマイワナ</strong> <span class="text-xs text-slate-500">（マルチ・ポップ・アイコン）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">13:15 - 13:45</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">中根もにゃ</strong> <span class="text-xs text-slate-500">（ウクレレ弾き語りアコースティックライブ）</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">13:30 - 14:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-teal-600 text-white text-[10px] font-bold rounded mr-1">トーク</span>
+                    <strong class="text-slate-800">高雄好き女子 - RENA</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">14:00 - 14:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">呂衣喬 Aki</strong> <span class="text-xs text-slate-500">（作詞・作曲・編曲を手掛けるシンガーソングライター）</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">14:30 - 15:10</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">Emily Pu 卜星慧</strong> <span class="text-xs text-slate-500">（弾き語りロックシンガー）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">15:00 - 15:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">Ebbi</strong> <span class="text-xs text-slate-500">（台湾出身、各ジャンルを横断して活躍する実力派）</span>
+                  </td>
+                </tr>
+                <tr class="bg-blue-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-taiwanBlue">15:20 - 15:50</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanBlue text-white text-[10px] font-bold rounded mr-1">ラップ</span>
+                    <strong class="text-slate-900">饒舌霹靂雙人組 (阿跨面＆寶寶熊)</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">16:00 - 16:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-amber-600 text-white text-[10px] font-bold rounded mr-1">伝統</span>
+                    <strong class="text-slate-800">霹靂布袋戲 （台湾伝統人形劇）</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">16:00 - 16:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">月龍 (ゆぇろん)</strong> <span class="text-xs text-slate-500">（二胡を中心とした東洋楽器アンサンブル）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">16:40 - 17:10</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">克里夫 (Cliff)</strong> <span class="text-xs text-slate-500">（温かく繊細なギター弾き語り）</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">17:10 - 17:50</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-teal-600 text-white text-[10px] font-bold rounded mr-1">トーク</span>
+                    <strong class="text-slate-800">台湾スイーツのひみつ （池澤春菜 ＆ ペギーキュウ）</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">17:30 - 18:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">和同開心</strong> <span class="text-xs text-slate-500">（DJプレイと日台カルチャーコミュニティ時間）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/30">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">18:00 - 20:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4 font-bold text-slate-700">DJステージ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- DAY 3: 6/28 (日) -->
+          <div id="content-day3" class="timetable-content fade-in hidden space-y-3">
+            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 flex items-center text-xs text-slate-700">
+              <i class="fa-solid fa-circle-info mr-2"></i> 最終日！YouTuberアランさんや二胡・二重奏の他、サブステージ（四季の森）での伝統音楽・お土産エリアも終日オープン！
+            </div>
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-50 text-xs font-bold text-slate-500 border-b border-slate-200">
+                  <th class="py-3 px-4 w-1/4">時間</th>
+                  <th class="py-3 px-4 w-1/4">ステージ</th>
+                  <th class="py-3 px-4 w-2/4">プログラム・出演者</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-sm">
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">11:30 - 12:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">北村舞香</strong> <span class="text-xs text-slate-500">（本日最終日ステージ）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">12:00 - 12:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">桜音みゆぃ♪</strong>
+                  </td>
+                </tr>
+                <tr class="bg-amber-50">
+                  <td class="py-3 px-4 font-mono font-bold text-taiwanBlue">12:30 - 13:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-teal-600 text-white text-[10px] font-bold rounded mr-1">トーク</span>
+                    <strong class="text-slate-900">「説到日本就想到阿倫」- 人気YouTuber 阿倫（アラン）</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">13:00 - 13:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">中根もにゃ</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">13:30 - 14:10</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">Emily Pu 卜星慧</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">14:00 - 14:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">呂衣喬 Aki</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">14:20 - 14:50</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">克里夫 (Cliff)</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">15:00 - 15:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-teal-600 text-white text-[10px] font-bold rounded mr-1">講座</span>
+                    <strong class="text-slate-800">台湾華語LAB （近藤歌織）</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">15:00 - 15:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">Ebbi</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">15:50 - 16:20</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">daisuke katayama</strong> <span class="text-xs text-slate-500">（シンガーソングライター / ギョウザマン）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">16:00 - 16:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">月龍 (ゆぇろん)</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">16:35 - 17:05</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-taiwanOrange text-white text-[10px] font-bold rounded mr-1">LIVE</span>
+                    <strong class="text-slate-800">洸美-hiromi-</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">17:00 - 17:30</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4">
+                    <span class="px-1.5 py-0.5 bg-teal-600 text-white text-[10px] font-bold rounded mr-1">講座</span>
+                    <strong class="text-slate-800">台湾では、神さまも旅をする （松浦優子）</strong>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50/50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-500">17:15 - 18:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-sky-100 text-sky-800 text-xs font-bold rounded">サブ (四季の森)</span></td>
+                  <td class="py-3 px-4">
+                    <strong class="text-slate-800">和同開心</strong> <span class="text-xs text-slate-500">（DJクロージングステージ）</span>
+                  </td>
+                </tr>
+                <tr class="bg-slate-50">
+                  <td class="py-3 px-4 font-mono font-bold text-slate-600">18:30 - 19:00</td>
+                  <td class="py-3 px-4"><span class="px-2 py-1 bg-taiwanRed text-white text-xs font-bold rounded">メイン (ナカノバ)</span></td>
+                  <td class="py-3 px-4 font-bold text-slate-700">閉会式</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 会場マップと出店ブース一覧（インタラクティブ） -->
+      <section id="map" class="mb-12 scroll-mt-20">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
+          <div class="border-b border-slate-200 pb-4 mb-6">
+            <h3 class="text-2xl font-black text-slate-900 flex items-center">
+              <i class="fa-solid fa-map-location-dot text-taiwanOrange mr-2"></i> 会場レイアウト ＆ 全51出店・ブースマップ
+            </h3>
+            <p class="text-sm text-slate-500 mt-1">取材したい対象のブースの位置を事前に確認できます。タブでエリア別ブースリストを切替表示！</p>
+          </div>
+
+          <!-- エリア選択 -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-6">
+            <button onclick="switchArea('area1')" id="btn-area1" class="area-btn p-3 text-sm font-bold rounded-lg border-2 border-taiwanOrange bg-taiwanOrange/10 text-taiwanOrange text-left flex items-center justify-between">
+              <span>① 中野区役所ナカノバ＆ソトニワ</span>
+              <span class="text-xs bg-taiwanOrange text-white px-2 py-0.5 rounded-full font-mono">39〜51</span>
+            </button>
+            <button onclick="switchArea('area2')" id="btn-area2" class="area-btn p-3 text-sm font-bold rounded-lg border-2 border-transparent bg-slate-50 hover:bg-slate-100 text-slate-700 text-left flex items-center justify-between">
+              <span>② 四季の森公園イベントエリア(飲食)</span>
+              <span class="text-xs bg-slate-400 text-white px-2 py-0.5 rounded-full font-mono">01〜17</span>
+            </button>
+            <button onclick="switchArea('area3')" id="btn-area3" class="area-btn p-3 text-sm font-bold rounded-lg border-2 border-transparent bg-slate-50 hover:bg-slate-100 text-slate-700 text-left flex items-center justify-between">
+              <span>③ 四季の森公園芝生エリア(体験/土産)</span>
+              <span class="text-xs bg-slate-400 text-white px-2 py-0.5 rounded-full font-mono">18〜38</span>
+            </button>
+          </div>
+
+          <!-- ブースコンテンツ -->
+          <div>
+            <!-- エリア1 -->
+            <div id="area-content-1" class="area-content space-y-4">
+              <div class="bg-orange-50 text-orange-800 p-4 rounded-lg text-sm border border-orange-100 flex items-center">
+                <i class="fa-solid fa-circle-exclamation text-lg mr-3"></i>
+                <div>
+                  <strong>中野区役所ナカノバ＆ソトニワエリア:</strong> 6/27(土)・28(日)のみ開催。メインステージ、プレス受付、伝統雑貨や体験ブースが並びます。
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- ブースアイテム -->
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanOrange transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanOrange text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">39</span>
+                  <div>
+                    <h5 class="font-bold text-sm">台湾文化祭本部</h5>
+                    <span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">運営</span>
+                    <p class="text-xs text-slate-500 mt-1">※プレスの皆様の受付は<strong>中野区役所ナカノバ受付</strong>となります。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanOrange transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanOrange text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">40</span>
+                  <div>
+                    <h5 class="font-bold text-sm">台湾文化祭抽選会</h5>
+                    <span class="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">お土産・雑貨</span>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanOrange transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanOrange text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">45</span>
+                  <div>
+                    <h5 class="font-bold text-sm">HOLIJI 好日子</h5>
+                    <span class="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">お土産・お菓子</span>
+                    <p class="text-xs text-slate-500 mt-1">中野発・伝統「鉄窓花」を模したパッケージの焼き菓子。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanOrange transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanOrange text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">47</span>
+                  <div>
+                    <h5 class="font-bold text-sm">在日台湾原住民連合会</h5>
+                    <span class="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">お土産・体験</span>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanOrange transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanOrange text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">49</span>
+                  <div>
+                    <h5 class="font-bold text-sm">台湾式マッサージ</h5>
+                    <span class="text-[10px] bg-green-100 text-green-800 px-1.5 py-0.5 rounded">体験・癒し</span>
+                    <p class="text-xs text-slate-500 mt-1">痛気持ちいい本格的な台湾の手のぬくもりを体験。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanOrange transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanOrange text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">51</span>
+                  <div>
+                    <h5 class="font-bold text-sm">チャイナエアライン</h5>
+                    <span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">企業ブース</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- エリア2 -->
+            <div id="area-content-2" class="area-content hidden space-y-4">
+              <div class="bg-red-50 text-red-800 p-4 rounded-lg text-sm border border-red-100 flex items-center">
+                <i class="fa-solid fa-utensils text-lg mr-3"></i>
+                <div>
+                  <strong>中野四季の森公園イベントエリア:</strong> 大人気の本格的な台湾屋台グルメ・ドリンクが勢揃いする食の中心地です。
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanRed transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanRed text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">02</span>
+                  <div>
+                    <h5 class="font-bold text-sm">ハッピー夢工房</h5>
+                    <span class="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded">飲食・ネギパイ</span>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanRed transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanRed text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">04</span>
+                  <div>
+                    <h5 class="font-bold text-sm">Airey's Food Lab</h5>
+                    <span class="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded">飲食・水煎包</span>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanRed transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanRed text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">06</span>
+                  <div>
+                    <h5 class="font-bold text-sm">MEILI 美麗（美麗）</h5>
+                    <span class="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded">飲食・胡椒餅</span>
+                    <p class="text-xs text-slate-500 mt-1">下高井戸の人気店。香ばしい皮にスパイス豊かな豚肉あん。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanRed transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanRed text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">08</span>
+                  <div>
+                    <h5 class="font-bold text-sm">TAIHU BREWING (臺虎精釀)</h5>
+                    <span class="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded">クラフトビール</span>
+                    <p class="text-xs text-slate-500 mt-1">台湾で大人気の最先端のクラフトビールブランド。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanRed transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanRed text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">10</span>
+                  <div>
+                    <h5 class="font-bold text-sm">福来大雞排</h5>
+                    <span class="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded">飲食・ジーパイ</span>
+                    <p class="text-xs text-slate-500 mt-1">顔サイズ！注文後に揚げるスパイス香る大鶏排。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-taiwanRed transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-taiwanRed text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">13</span>
+                  <div>
+                    <h5 class="font-bold text-sm">TAIWAN BEE</h5>
+                    <span class="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.5 rounded">飲食・熱炒</span>
+                    <p class="text-xs text-slate-500 mt-1">台湾の深夜の熱気をそのままに再現するパワフルな食堂スタイル。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- エリア3 -->
+            <div id="area-content-3" class="area-content hidden space-y-4">
+              <div class="bg-emerald-50 text-emerald-800 p-4 rounded-lg text-sm border border-emerald-100 flex items-center">
+                <i class="fa-solid fa-gift text-lg mr-3"></i>
+                <div>
+                  <strong>中野四季の森公園芝生エリア:</strong> お土産、観光情報、協賛企業ブース、および賑やかなサブステージ（入場無料）が設置される広大な広場です。
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-600 transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">20</span>
+                  <div>
+                    <h5 class="font-bold text-sm">TAIWAN LOVE</h5>
+                    <span class="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">お土産・セレクト雑貨</span>
+                    <p class="text-xs text-slate-500 mt-1">地元で長く愛されてきた信頼される日常品セレクトショップがリアル出展。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-600 transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">22</span>
+                  <div>
+                    <h5 class="font-bold text-sm">スターラックス航空</h5>
+                    <span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">企業ブース</span>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-600 transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">25</span>
+                  <div>
+                    <h5 class="font-bold text-sm">(株) JTB</h5>
+                    <span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">旅行相談・抽選会</span>
+                    <p class="text-xs text-slate-500 mt-1">「夜の天燈上げイベント」が当たるはずれなし抽選会を開催。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-600 transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">32</span>
+                  <div>
+                    <h5 class="font-bold text-sm">Yoshika 好果</h5>
+                    <span class="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">お土産・ドライフルーツ</span>
+                    <p class="text-xs text-slate-500 mt-1">台湾・高雄の高品質なフリーズドライフルーツブランド。</p>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-600 transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">36</span>
+                  <div>
+                    <h5 class="font-bold text-sm">海の珍味 - 台湾のからすみ</h5>
+                    <span class="text-[10px] bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded">お土産・からすみ</span>
+                  </div>
+                </div>
+                <div class="p-3 border border-slate-100 rounded-lg hover:border-emerald-600 transition bg-white shadow-sm flex items-start space-x-3">
+                  <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-xs flex-shrink-0">38</span>
+                  <div>
+                    <h5 class="font-bold text-sm">台湾夜市ゲームコーナー</h5>
+                    <span class="text-[10px] bg-green-100 text-green-800 px-1.5 py-0.5 rounded">体験・夜市ゲーム</span>
+                    <p class="text-xs text-slate-500 mt-1">輪投げ、ビン釣り、麻雀ビンゴなどで遊べる夜市空間。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 取材エントリー申込（インタラクティブフォーム） -->
+      <section id="registration" class="bg-slate-900 text-white rounded-2xl shadow-xl p-6 md:p-10 scroll-mt-20">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-8">
+            <span class="text-taiwanYellow text-xs font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Media Application</span>
+            <h3 class="text-2xl md:text-3xl font-black mt-3 text-white">取材エントリー・プレスパス申込</h3>
+            <p class="text-sm text-slate-400 mt-2">
+              当日の取材をスムーズに行うため、恐れ入りますが事前のご登録をお願いいたします。<br>
+              フォーム送信後、自動生成される「取材受付票」を当日お持ちいただけます。
+            </p>
+          </div>
+
+          <form id="pressForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">貴社名 / 媒体名 <span class="text-red-500">*</span></label>
+                <input required type="text" name="media" placeholder="例：〇〇新聞社 / Webマガジン〇〇" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-taiwanYellow text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">取材代表者 氏名 <span class="text-red-500">*</span></label>
+                <input required type="text" name="name" placeholder="例：山田 太郎" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-taiwanYellow text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                <input required type="email" name="email" placeholder="example@press.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-taiwanYellow text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">お電話番号 <span class="text-red-500">*</span></label>
+                <input required type="tel" name="tel" placeholder="090-0000-0000" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-taiwanYellow text-sm">
+              </div>
+            </div>
+
+            <!-- 取材希望日 -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">取材ご来場予定日（複数選択可） <span class="text-red-500">*</span></label>
+              <div class="flex flex-wrap gap-4 text-sm">
+                <label class="flex items-center space-x-2 cursor-pointer bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg border border-slate-700">
+                  <input type="checkbox" name="dates" value="6/26(金)" class="accent-taiwanYellow">
+                  <span>6月26日（金）[プレ開催]</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg border border-slate-700">
+                  <input type="checkbox" name="dates" value="6/27(土) 開幕式" class="accent-taiwanYellow" checked>
+                  <span class="text-taiwanYellow font-bold">6月27日（土）★開幕式・メイン日</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg border border-slate-700">
+                  <input type="checkbox" name="dates" value="6/28(日)" class="accent-taiwanYellow">
+                  <span>6月28日（日）</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 取材種別 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">取材機材・構成 <span class="text-red-500">*</span></label>
+                <div class="flex flex-wrap gap-3 text-sm">
+                  <label class="flex items-center space-x-1.5 cursor-pointer">
+                    <input type="checkbox" name="types" value="スチール撮影" class="accent-taiwanYellow" checked>
+                    <span>スチール(写真)</span>
+                  </label>
+                  <label class="flex items-center space-x-1.5 cursor-pointer">
+                    <input type="checkbox" name="types" value="ムービー撮影" class="accent-taiwanYellow">
+                    <span>ムービー(動画/TV)</span>
+                  </label>
+                  <label class="flex items-center space-x-1.5 cursor-pointer">
+                    <input type="checkbox" name="types" value="ペン記者取材" class="accent-taiwanYellow">
+                    <span>ペン(記事作成のみ)</span>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">総取材同行人数 <span class="text-red-500">*</span></label>
+                <select name="count" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-taiwanYellow text-sm">
+                  <option value="1名">1名</option>
+                  <option value="2名" selected>2名</option>
+                  <option value="3名">3名</option>
+                  <option value="4名">4名</option>
+                  <option value="5名以上">5名以上（特記事項に記載）</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 特記事項 -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">ご質問・個別インタビューや素材のご要望など</label>
+              <textarea name="notes" rows="3" placeholder="（例：オープニングセレモニー後に市川由紀乃さん、または呉廷中実行委員長への5分程度の個別インタビューを希望します、など）" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-taiwanYellow text-sm"></textarea>
+            </div>
+
+            <div class="text-center pt-4">
+              <button type="submit" class="px-10 py-4 bg-taiwanYellow hover:bg-opacity-95 text-taiwanBlue font-black text-base rounded-full shadow-lg hover:shadow-xl transition duration-200 transform hover:-translate-y-0.5">
+                <i class="fa-solid fa-paper-plane mr-2"></i> 取材申請して「取材受付票」を即時発行する
+              </button>
+              <p class="text-[11px] text-slate-500 mt-3">※お預かりした個人情報は, 本イベントの取材対応およびプレスパス送付の目的にのみ使用いたします。</p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- お問い合わせフッター -->
+    <footer class="bg-taiwanBlue text-white border-t border-white/10 mt-16 py-12 relative overflow-hidden">
+      <div class="absolute bottom-0 right-0 w-64 h-64 bg-taiwanRed opacity-10 rounded-full -mr-20 -mb-20"></div>
+      
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h4 class="text-lg font-black tracking-wider text-taiwanYellow flex items-center">
+              <i class="fa-solid fa-square-phone mr-2"></i> 本件に関する報道関係者様からのお問い合わせ
+            </h4>
+            <p class="text-xs text-white/70 mt-1">イベント紹介、取材調整、プレス用素材提供については下記までお気軽にお問い合わせください。</p>
+            
+            <div class="mt-6 space-y-3 text-sm">
+              <p><strong class="text-slate-300">窓口：</strong> 台湾文化祭実行委員会（運営会社：株式会社トモトモ）</p>
+              <p><strong class="text-slate-300">代表者：</strong> 呉 廷中（ゴ・テイチュウ）</p>
+              <p><strong class="text-slate-300">E-mail：</strong> <a href="mailto:taiwanmatusri@gmail.com" class="text-taiwanYellow hover:underline">taiwanmatusri@gmail.com</a></p>
+              <p class="text-xs text-white/50">※公式WEBサイト：<a href="https://taiwanbunkasai.com/" target="_blank" class="hover:underline">https://taiwanbunkasai.com/</a></p>
+            </div>
+          </div>
+          
+          <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+            <h5 class="font-bold text-sm text-taiwanYellow mb-2 flex items-center">
+              <i class="fa-solid fa-bullhorn mr-2"></i> メディアの皆様へのお願い
+            </h5>
+            <p class="text-xs text-white/80 leading-relaxed">
+              会場内の飲食ブースや出店ブースは、一般のお客様で大変混雑することが予想されます。一般観覧者および中野区役所利用者の方々の安全を最優先とし、動線の確保、周囲のお客様のご迷惑にならないようなカメラ位置・三脚のご協力をお願い申し上げます。
+            </p>
+          </div>
+        </div>
+        
+        <div class="border-t border-white/10 mt-10 pt-6 text-center text-xs text-white/40">
+          <p>© 2026 台湾文化祭実行委員会（運営：株式会社トモトモ） All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // タブ切り替え（タイムテーブル）
+    function switchTab(dayId) {
+      // 全コンテンツを非表示に
+      document.querySelectorAll('.timetable-content').forEach(el => {
+        el.classList.add('hidden');
+      });
+      // 選択されたコンテンツを表示
+      document.getElementById('content-' + dayId).classList.remove('hidden');
+
+      // 全ボタンのアクティブ状態を解除
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = 'tab-btn flex-1 md:flex-initial px-4 py-2 text-xs md:text-sm font-bold rounded-md text-slate-600 hover:text-slate-900';
+      });
+      // 選択されたボタンをアクティブに
+      const activeBtn = document.getElementById('tab-' + dayId);
+      activeBtn.className = 'tab-btn flex-1 md:flex-initial px-4 py-2 text-xs md:text-sm font-bold rounded-md bg-white text-taiwanRed shadow-sm';
+    }
+
+    // エリア切り替え（会場マップ）
+    function switchArea(areaId) {
+      // 全コンテンツ非表示
+      document.querySelectorAll('.area-content').forEach(el => {
+        el.classList.add('hidden');
+      });
+      // 選択エリア表示
+      const num = areaId.replace('area', '');
+      document.getElementById('area-content-' + num).classList.remove('hidden');
+
+      // ボタンのスタイル更新
+      document.querySelectorAll('.area-btn').forEach(btn => {
+        btn.className = 'area-btn p-3 text-sm font-bold rounded-lg border-2 border-transparent bg-slate-50 hover:bg-slate-100 text-slate-700 text-left flex items-center justify-between';
+        // 内包するバッジのクラスもリセット
+        const badge = btn.querySelector('span:last-child');
+        if (badge) {
+          badge.className = 'text-xs bg-slate-400 text-white px-2 py-0.5 rounded-full font-mono';
+        }
+      });
+
+      const activeBtn = document.getElementById('btn-' + areaId);
+      let activeColorClass = 'taiwanOrange';
+      if (areaId === 'area2') activeColorClass = 'taiwanRed';
+      if (areaId === 'area3') activeColorClass = 'emerald-600';
+
+      activeBtn.className = `area-btn p-3 text-sm font-bold rounded-lg border-2 border-${activeColorClass} bg-${activeColorClass}/10 text-${activeColorClass} text-left flex items-center justify-between`;
+      const activeBadge = activeBtn.querySelector('span:last-child');
+      if (activeBadge) {
+        activeBadge.className = `text-xs bg-${activeColorClass} text-white px-2 py-0.5 rounded-full font-mono`;
+      }
+    }
+
+    // フォーム送信処理（印刷用パスの生成）
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      
+      const media = form.media.value;
+      const name = form.name.value;
+      const email = form.email.value;
+      const tel = form.tel.value;
+      const count = form.count.value;
+
+      // 日程チェックボックス
+      const dates = [];
+      form.querySelectorAll('input[name="dates"]:checked').forEach(cb => {
+        dates.push(cb.value);
+      });
+
+      // 取材種別チェックボックス
+      const types = [];
+      form.querySelectorAll('input[name="types"]:checked').forEach(cb => {
+        types.push(cb.value);
+      });
+
+      // 印刷用パスに反映
+      document.getElementById('p-media').innerText = media;
+      document.getElementById('p-name').innerText = name + '（同行 ' + count + '）';
+      document.getElementById('p-tel').innerText = tel;
+      document.getElementById('p-email').innerText = email;
+      document.getElementById('p-dates').innerText = dates.join(', ') || '未選択';
+      document.getElementById('p-types').innerText = types.join(', ') || '未選択';
+      
+      // ランダムな受付番号発行
+      const randomNo = 'TW2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('p-ref-no').innerText = randomNo;
+
+      // 表示切り替え
+      document.body.classList.add('overflow-hidden'); // 背景スクロール固定
+      document.getElementById('printPassContainer').classList.remove('hidden');
+      document.getElementById('printPassContainer').classList.add('block', 'fade-in');
+      
+      // トップにスクロール
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 印刷誘導アラート
+      setTimeout(() => {
+        alert("取材登録が完了しました！\n画面上に表示された「取材受付票」を印刷、もしくはPDF保存して、中野区役所ナカノバ受付までお持ちください。");
+      }, 300);
+    }
+
+    function closePrintPass() {
+      document.body.classList.remove('overflow-hidden');
+      document.getElementById('printPassContainer').classList.add('hidden');
+      document.getElementById('printPassContainer').classList.remove('block', 'fade-in');
+    }
+  </script>
+</body>
+</html>
